@@ -1,0 +1,32 @@
+{
+  "name": "cds-plugin-handlers",
+  "version": "1.0.0",
+  "description": "Plugin for CAP to use a handler for each entity structured by folder for each service",
+  "homepage": "https://community.sap.com/t5/technology-blogs-by-members/recap-2023-cap-advanced-programming-model-1/ba-p/13574856",
+  "main": "cds-plugin.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [
+    "sap",
+    "cap",
+    "cds",
+    "plugin",
+    "cds-plugin",
+    "cap-plugin"
+  ],
+  "author": "Wouter Lemaire",
+  "license": "MIT",
+  "devDependencies": {
+    "@sap/cds": "^7.6.2",
+    "@types/node": "^20.11.17",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "@sap/cds": "^7.6.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lemaiwo/cds-plugin-handlers.git"
+  }
+}
