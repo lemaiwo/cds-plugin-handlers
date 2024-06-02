@@ -1,5 +1,5 @@
 # CDS-PLUGIN-HANDLERS
-CAP CDS Plugin that enables classes for entities.
+CAP CDS Plugin that enables classes for entities in a structured way + implementing an additional layer for service classes to separate the implementation for requests to external api's.
 
 ## Installation
 
