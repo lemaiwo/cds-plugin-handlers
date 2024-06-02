@@ -13,7 +13,7 @@ Create a folder "handlers" in the "src" folder. Inside the "handlers" folder you
 
 This plugin also allows you to implement separation by concerns when it comes to external services. All requests to external services or even to different databases can be stored in a folder "services". In here, you have to create a service class for each external service to implement all the needed requests.
 
-The folder structure in the "srv" folder should look like this.
+The folder structure in the "srv" folder should look like this:
 ```sh
 srv
 ├── src
