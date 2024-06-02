@@ -1,6 +1,6 @@
 {
   "name": "cds-plugin-handlers",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Plugin for CAP to use a handler for each entity structured by folder for each service",
   "homepage": "https://community.sap.com/t5/technology-blogs-by-members/recap-2023-cap-advanced-programming-model-1/ba-p/13574856",
   "main": "cds-plugin.js",
