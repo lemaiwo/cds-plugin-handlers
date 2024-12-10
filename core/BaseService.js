@@ -45,6 +45,11 @@ class BaseService {
             return BaseService.service[service.name];
         });
     }
+    static getInstances(services) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return Promise.all(services.map(service => this.getInstance(service)));
+        });
+    }
 }
 BaseService.service = {};
 BaseService.cdsServices = {};

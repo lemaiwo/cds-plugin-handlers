@@ -36,4 +36,8 @@ export default abstract class BaseService {
         await BaseService.service[service.name].connect();
         return BaseService.service[service.name] as T;
     }
+
+    public static async getInstances<T extends BaseService>(services: { new(): T; }[]): Promise<T[]> {
+        return Promise.all(services.map(service => this.getInstance(service)))
+    }
 }
