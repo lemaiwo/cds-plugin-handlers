@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = handleError;
 function handleError(req, error) {
     if (req) {
         if (error.response) {
@@ -10,4 +11,3 @@ function handleError(req, error) {
         }
     }
 }
-exports.default = handleError;

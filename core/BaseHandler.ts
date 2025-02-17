@@ -1,8 +1,5 @@
-import { Request } from "@sap/cds/apis/events";
-import { SELECT } from "@sap/cds/apis/cqn";
-import BaseService from "./BaseService";
+import { Service, Request, SELECT } from "@sap/cds";
 import handleError from "../utils/error";
-import { Service } from "@sap/cds";
 
 export type supportedOperationEvent = 'before' | 'after' | 'on';
 export type supportedOperationType = 'CREATE' | 'READ' | 'UPDATE' | 'DELETE';

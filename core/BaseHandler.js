@@ -24,8 +24,8 @@ class BaseHandler {
         return this.srv;
     }
     onReadBase(req, next, skip, top) {
-        var _a, _b, _c, _d;
         return __awaiter(this, void 0, void 0, function* () {
+            var _a, _b, _c, _d;
             if (!this.onRead)
                 throw new Error("Not implemented");
             try {
