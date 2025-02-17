@@ -87,14 +87,14 @@ class EntityFactory {
         return this.handlers[srv.name] && this.handlers[srv.name][`${Entity}Handler`] ? new this.handlers[srv.name][`${Entity}Handler`](srv) : undefined;
     }
     getOperationInstance(Service, Operation) {
-        var _a;
         return __awaiter(this, void 0, void 0, function* () {
+            var _a;
             return (_a = this.operations[Service]) === null || _a === void 0 ? void 0 : _a[Operation];
         });
     }
     getEntityOperationInstance(Service, Entity, Operation) {
-        var _a, _b;
         return __awaiter(this, void 0, void 0, function* () {
+            var _a, _b;
             return (_b = (_a = this.entityOperations[Service]) === null || _a === void 0 ? void 0 : _a[Entity]) === null || _b === void 0 ? void 0 : _b[Operation];
         });
     }
@@ -122,7 +122,7 @@ class EntityFactory {
                 //& we also need to make sure to pass the correct params to the methods which are different for after events
                 srv[supportedOperation.event](supportedOperation.type, entity, afterFunctions.includes(supportedOperationFn) ?
                     (each, req) => __awaiter(this, void 0, void 0, function* () { var _a, _b; return (_b = (_a = (serviceEntityInstance)) === null || _a === void 0 ? void 0 : _a[`${supportedOperationFn}Base`]) === null || _b === void 0 ? void 0 : _b.call(_a, each, req); }) :
-                    (req, next) => __awaiter(this, void 0, void 0, function* () { var _c, _d; return (_d = (_c = (serviceEntityInstance)) === null || _c === void 0 ? void 0 : _c[`${supportedOperationFn}Base`]) === null || _d === void 0 ? void 0 : _d.call(_c, req, next); }));
+                    (req, next) => __awaiter(this, void 0, void 0, function* () { var _a, _b; return (_b = (_a = (serviceEntityInstance)) === null || _a === void 0 ? void 0 : _a[`${supportedOperationFn}Base`]) === null || _b === void 0 ? void 0 : _b.call(_a, req, next); }));
             }
         }
     }

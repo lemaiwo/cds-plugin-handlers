@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "target": "es2021",
+        "module": "commonjs",
+        "outDir": "./gen/srv/srv",
+        "rootDir": "./srv",
+        "baseUrl": "./",
+        "moduleResolution": "node",
+        "skipLibCheck": true,
+        "preserveConstEnums": true,
+        "sourceMap": false,
+        "allowJs": true,
+        "strict": true,
+        "strictNullChecks": true,
+        "strictPropertyInitialization": false,
+        "esModuleInterop": true,
+        "noUnusedLocals": false,
+        "preserveSymlinks": true
+    },
+    "include": [
+      "./srv/**/*"
+    ],
+    "exclude": [
+      "**/node_modules",
+      "**/typings"
+    ]
+}

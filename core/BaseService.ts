@@ -1,5 +1,4 @@
-import cds from '@sap/cds';
-import { Service } from "@sap/cds/apis/services";
+import cds, { Service } from "@sap/cds";
 
 export default abstract class BaseService {
     private static service: { [key: string]: BaseService } = {};

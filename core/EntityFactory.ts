@@ -1,13 +1,10 @@
 import BaseHandler from "./BaseHandler";
 import path from 'path';
-import { EventHandler, OnEventHandler, ResultsHandler, Service } from "@sap/cds/apis/services";
+import { EventHandler, OnEventHandler, ResultsHandler, Service, csn, Request, entity } from "@sap/cds";
 import { camelize } from "../utils/general";
-import { Definitions } from "@sap/cds/apis/linked";
 import fs from 'fs';
-import { Definition, FQN } from "@sap/cds/apis/csn";
-import { Request } from "@sap/cds/apis/events";
 
-type TypeEvent = (eve: string, entity: FQN, handler: OnEventHandler | EventHandler | ResultsHandler) => Service;
+type TypeEvent = (eve: string, entity: csn.FQN, handler: OnEventHandler | EventHandler | ResultsHandler) => Service;
 
 const operationsDir = "operations";
 const startDir = "./";
@@ -20,17 +17,11 @@ type OmitSupportedOperationsType = keyof Omit<BaseHandler, "addTemporalOperation
 type WithoutBaseSufixType<T> = T extends `${infer P}Base` ? P : never;
 type SupportedOperationFnType = WithoutBaseSufixType<OmitSupportedOperationsType>;
 
-interface DefinitionWithActions extends Definition {
-    actions?: Definitions & ((namespace: string) => Definitions),
-    includes: Array<string>
-}
-
 export default class EntityFactory {
     private handlers: Record<string, Record<string, BaseHandler>> = {};
     private operations: Record<string, Record<string, OnEventHandler>> = {};
     private entityOperations: Record<string, Record<string, Record<string, OnEventHandler>>> = {};
 
-    private static instance: EntityFactory;
     private static files: any = [];
 
     constructor() {
@@ -120,7 +111,7 @@ export default class EntityFactory {
         //Loop over all entities
         for (const entity of Object.keys(srv.entities)) {
             const serviceEntityInstance = this.getHandlerInstanceService(srv, entity);
-            const oEntity = srv.entities[entity] as DefinitionWithActions;
+            const oEntity = srv.entities[entity];
 
             if (oEntity.actions) this.applyServiceBoundOperationHandlers(srv, entity, oEntity.actions);
 
@@ -153,7 +144,7 @@ export default class EntityFactory {
         }
     }
 
-    private async applyServiceBoundOperationHandlers(srv: Service, entity: string, actions: Definitions & ((namespace: string) => Definitions)) {
+    private async applyServiceBoundOperationHandlers(srv: Service, entity: string, actions: entity["actions"]) {
         //Loop over operations
         for (const operation of Object.keys(actions)) {
             //Get operation
